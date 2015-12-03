@@ -681,7 +681,7 @@ fido jumping
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span class="c"># Pkg.clone(&quot;https://github.com/JuliaControl/Control.jl.git&quot;)</span>
@@ -690,8 +690,8 @@ fido jumping
 <span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">R</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="c"># K = lqr(A, B, Q, R)</span>
-<span class="c"># @show K</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="p">@</span><span class="n">show</span> <span class="n">K</span>
 
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">--------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
@@ -707,29 +707,14 @@ fido jumping
 
 
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Base.FloatingPoint is deprecated, use AbstractFloat instead.
-  likely near /Users/rdeits/.julia/Control/src/types/polys.jl:7
-WARNING: Base.String is deprecated, use AbstractString instead.
-  likely near /Users/rdeits/.julia/Control/src/types/transferfunction.jl:74
-WARNING: Base.String is deprecated, use AbstractString instead.
-  likely near /Users/rdeits/.julia/Control/src/types/transferfunction.jl:78
-WARNING: Base.FloatingPoint is deprecated, use AbstractFloat instead.
-  likely near /Users/rdeits/.julia/Control/src/timeresp.jl:155
-WARNING: Base.String is deprecated, use AbstractString instead.
-  likely near /Users/rdeits/.julia/Control/src/utilities.jl:73
-WARNING: Base.String is deprecated, use AbstractString instead.
-  likely near /Users/rdeits/.julia/Control/src/utilities.jl:73
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
+<pre>K = [5.353949274783947 4.021335259651989
+ 4.021335259651994 9.090599548981206]
+
 --------
 
-  </pre>
+  0.043779 seconds (105.00 k allocations: 19.028 MB, 15.14% gc time)
+</pre>
 </div>
 </div>
 
@@ -762,10 +747,10 @@ Elapsed time is 2.058313 seconds.</code></pre>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="mf">2.058</span> <span class="o">/</span> <span class="mf">0.04112</span>
+<div class=" highlight hl-julia"><pre><span class="mf">2.058</span> <span class="o">/</span> <span class="mf">0.0438</span>
 </pre></div>
 
 </div>
@@ -776,11 +761,11 @@ Elapsed time is 2.058313 seconds.</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>50.04863813229572</pre>
+<pre>46.986301369863014</pre>
 </div>
 
 </div>
